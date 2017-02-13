@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * https://codility.com/programmers/lessons/1-iterations/binary_gap/
+ */
+
 class BinarygapTest extends PHPUnit_Framework_TestCase {
 
     public function solution($N)

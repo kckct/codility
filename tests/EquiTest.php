@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * https://codility.com/demo/take-sample-test/
+ */
+
 class EquiTest extends PHPUnit_Framework_TestCase {
 
     public function solution($A)
