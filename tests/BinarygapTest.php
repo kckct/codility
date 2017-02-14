@@ -6,26 +6,41 @@
 
 class BinarygapTest extends PHPUnit_Framework_TestCase {
 
-    public function solution($N)
-    {
+//    public function solution($N)
+//    {
+//        $bin = decbin($N);
+//
+//        preg_match_all('/10+/', $bin, $matches);
+//
+//        if(count($matches[0]) == 0) return 0;
+//
+//        $final = 0;
+//        foreach($matches[0] as $key => $val)
+//        {
+//            preg_match_all('/'. $val . '1/', $bin, $m);
+//            if(count($m[0]) > 0)
+//            {
+//                $tmp = strlen($val) - 1;
+//                if($tmp > $final) $final = $tmp;
+//            }
+//        }
+//
+//        return $final;
+//    }
+
+    function solution($N) {
         $bin = decbin($N);
-
-        preg_match_all('/10+/', $bin, $matches);
-
-        if(count($matches[0]) == 0) return 0;
-
-        $final = 0;
-        foreach($matches[0] as $key => $val)
+        $gap = 0;
+        $exp = explode('1', $bin);
+        foreach($exp as $key => $val)
         {
-            preg_match_all('/'. $val . '1/', $bin, $m);
-            if(count($m[0]) > 0)
+            if($val != '' && isset($exp[$key + 1]))
             {
-                $tmp = strlen($val) - 1;
-                if($tmp > $final) $final = $tmp;
+                $num = strlen($val);
+                if($num > $gap) $gap = $num;
             }
         }
-
-        return $final;
+        return $gap;
     }
 
     /**
